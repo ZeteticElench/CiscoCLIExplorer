@@ -1,0 +1,87 @@
+# PyATS Testbed Configuration Example
+# Copy this file to testbed.yaml and update with your device details
+
+devices:
+  # Example IOS-XE Router
+  router1:
+    os: iosxe
+    type: router
+    connections:
+      cli:
+        protocol: ssh
+        ip: 192.168.1.1
+        port: 22
+    credentials:
+      default:
+        username: admin
+        password: cisco123
+      enable:
+        password: enable123
+
+  # Example IOS-XR Router
+  router2:
+    os: iosxr
+    type: router
+    connections:
+      cli:
+        protocol: ssh
+        ip: 192.168.1.2
+        port: 22
+    credentials:
+      default:
+        username: admin
+        password: cisco123
+
+  # Example NX-OS Switch
+  switch1:
+    os: nxos
+    type: switch
+    connections:
+      cli:
+        protocol: ssh
+        ip: 192.168.1.3
+        port: 22
+    credentials:
+      default:
+        username: admin
+        password: cisco123
+
+  # Example ASA Firewall
+  firewall1:
+    os: asa
+    type: firewall
+    connections:
+      cli:
+        protocol: ssh
+        ip: 192.168.1.4
+        port: 22
+    credentials:
+      default:
+        username: admin
+        password: cisco123
+      enable:
+        password: enable123
+
+  # Example with Telnet
+  router3:
+    os: ios
+    type: router
+    connections:
+      cli:
+        protocol: telnet
+        ip: 192.168.1.5
+        port: 23
+    credentials:
+      default:
+        username: admin
+        password: cisco123
+      enable:
+        password: enable123
+
+# Optional: Topology definition
+topology:
+  links:
+    # Define links between devices if needed
+    router1_to_switch1:
+      - router1/GigabitEthernet0/0
+      - switch1/Ethernet1/1
