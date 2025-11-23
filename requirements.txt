@@ -1,3 +1,4 @@
 pyats>=23.0
 genie>=23.0
 unicon>=23.0
+neo4j>=5.0.0
