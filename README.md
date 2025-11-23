@@ -11,6 +11,7 @@ A Python tool that uses PyATS to perform a depth-first search (DFS) of Cisco CLI
 - **JSON Export**: Save and reload command trees for analysis
 - **Tree Visualization**: Print the discovered command structure
 - **Neo4j Integration**: Load command trees into Neo4j graph database for powerful queries and visualization
+- **PySide6 GUI**: Modern graphical interface for easy exploration and visualization
 
 ## Installation
 
@@ -78,6 +79,83 @@ python explore_cli.py -t testbed.yaml -d router1 -o commands.json \
 ```bash
 python explore_cli.py --load-only commands.json --print-tree
 ```
+
+## GUI Application
+
+The tool includes a modern PySide6-based graphical interface for easy device exploration and tree visualization.
+
+### Launching the GUI
+
+```bash
+python gui_main.py
+```
+
+### GUI Features
+
+#### 1. Explore Device Tab
+- **Quick Testbed Creator**: Create testbed files directly from the GUI
+- **Connection Settings**: Configure device connection parameters
+- **Exploration Settings**: Set max depth and command delay
+- **Real-time Progress**: View exploration progress and logs
+- **One-Click Exploration**: Start exploration with a single button
+
+#### 2. View Tree Tab
+- **Interactive Tree View**: Browse the command tree with expand/collapse
+- **Search Functionality**: Find commands by keyword
+- **Command Details**: View full command path and description
+- **Statistics**: See total commands, max depth, and node counts
+- **Export**: Export tree to text format
+- **Visual Markers**: Complete commands marked with ✓
+
+#### 3. Neo4j Export Tab
+- **Connection Testing**: Verify Neo4j connection before export
+- **One-Click Export**: Export command tree to Neo4j database
+- **Sample Queries**: Built-in Cypher query examples
+- **Progress Tracking**: Real-time export progress
+
+#### 4. Logs Tab
+- **Real-time Logging**: View all operations and errors
+- **Formatted Output**: Easy-to-read log messages
+- **Clear Logs**: Clean up logs when needed
+
+### GUI Workflow
+
+1. **Create/Select Testbed**:
+   - Use "Create Quick Testbed" for a simple setup
+   - Or browse to an existing testbed YAML file
+
+2. **Configure Exploration**:
+   - Enter device name
+   - Set max depth (default: 10)
+   - Set command delay (default: 0.5s)
+   - Choose output file location
+
+3. **Start Exploration**:
+   - Click "Start Exploration"
+   - Monitor progress in real-time
+   - View logs for detailed information
+
+4. **View Results**:
+   - Automatically switches to View Tree tab when complete
+   - Browse the command hierarchy
+   - Search for specific commands
+   - View detailed command information
+
+5. **Export to Neo4j** (Optional):
+   - Switch to Neo4j Export tab
+   - Enter connection details
+   - Test connection
+   - Click "Export to Neo4j"
+   - Browse graph at http://localhost:7474
+
+### GUI Screenshots
+
+The GUI provides an intuitive interface with:
+- Menu bar with File, Tools, and Help menus
+- Toolbar for quick access to common actions
+- Tabbed interface for different operations
+- Status bar showing current operation status
+- Modern, clean design with clear visual hierarchy
 
 ## Testbed Configuration
 
